@@ -7,4 +7,6 @@ const unsplash = new Unsplash({
   callbackUrl: "{CALLBACK_URL}"
 });
 
+window.unsplash = unsplash;
+
 export default unsplash;
