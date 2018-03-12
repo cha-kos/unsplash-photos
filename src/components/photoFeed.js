@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import getPhotos from './modules/photo.js';
+import getPhotos from '../modules/photo.js';
 
 class PhotoFeed extends React.Component{
-  constructor(){
+  constructor(props){
     super(props);
     this.state.photos = [];
   }
@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getPhotos: () => dispatch(getPhotos(attribute))
+  getPhotos: () => dispatch(getPhotos())
 }, dispatch);
 
 export default connect(

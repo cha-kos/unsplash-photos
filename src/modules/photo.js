@@ -1,5 +1,5 @@
-const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 import fetchPhotos from '../services/unsplash';
+const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 
 const initialState = {};
 
@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
       const photos = action.result;
       return {
         ...state,
-        [attribute]: action.attribute.value
+        photos: photos
       }
     default:
       return state;
