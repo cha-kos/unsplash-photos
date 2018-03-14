@@ -1,0 +1,52 @@
+.photo-feed-container{
+  display: grid;
+  grid-template-columns: [left] 100px [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [right] 100px;
+  grid-template-rows: [row1] 160px [row2] 980px [row3] 160px [row4] 1fr;
+}
+
+.photo-feed-header{
+  grid-column: col1 / right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.photo-list{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  grid-column: col1 / right;
+  grid-row: row2 / row3;
+}
+
+.photo-list li{
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.photo-thumbnail{
+  height: 120px;
+  width: 180px;
+  object-fit: cover;
+  margin-right: 45px;
+}
+
+.photo-link{
+  text-decoration: none;
+}
+
+.button-container{
+  grid-column: col1 / right;
+  grid-row-start: row3;
+  display: flex;
+  justify-content: center;
+}
+
+.get-photos-button{
+  width: 100px;
+  height: 50px;
+}
