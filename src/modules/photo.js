@@ -1,7 +1,8 @@
-// import fetchPhotos from '../services/unsplash';
 import { unsplash } from '../services/unsplash';
 import { toJson } from "unsplash-js";
 const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
+
+window.unsplash = unsplash;
 
 const initialState = {};
 
@@ -11,16 +12,17 @@ export default (state = initialState, action) => {
       const photos = action.result;
       return {
         photos
-      }
+      };
     default:
       return state;
   }
 };
 
 export const getPhotos = ()=> (dispatch) => {
-  return (fetchPhotos()
-    .then(result => dispatch(receivePhotos(result))
-  ));
+  return (
+    fetchPhotos()
+    .then(result => dispatch(receivePhotos(result)))
+  );
 };
 
 const fetchPhotos = () => {

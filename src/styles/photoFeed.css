@@ -13,10 +13,12 @@
   font-weight: bold;
 }
 
-.photo-list{
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
+.header-buttons-container{
+  display: flex;
+  flex-direction: grow;
+}
+
+.photo-feed-container ul{
   grid-column: col1 / right;
   grid-row: row2 / row3;
 }
@@ -28,7 +30,7 @@
   align-items: center;
 }
 
-.photo-thumbnail{
+.list-thumbnail{
   height: 120px;
   width: 180px;
   object-fit: cover;
@@ -39,14 +41,15 @@
   text-decoration: none;
 }
 
-.button-container{
-  grid-column: col1 / right;
-  grid-row-start: row3;
+.photo-grid{
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.get-photos-button{
-  width: 100px;
-  height: 50px;
+.grid-thumbnail{
+  width: 400px;
+  height: 266.66px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
