@@ -1,8 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getPhotos } from '../../modules/photo';
-import GetPhotosButton from '../getPhotosButton';
 import { loadingComplete } from '../../modules/getPhotosButton';
+import { openModal } from '../../modules/modal';
+import GetPhotosButton from '../getPhotosButton';
+import PhotoModal from './photoModal';
+import Modal from '../modal';
+import List from '../../iconComponents/list';
+import Grid from '../../iconComponents/grid';
 import '../../styles/photoFeed.css';
 
 class PhotoFeed extends React.Component{
@@ -10,7 +15,10 @@ class PhotoFeed extends React.Component{
     super(props);
     this.state = {
       photos: [],
-      view: "list"
+      view: "grid",
+      gridButtonStatus: "active",
+      listButtonStatus: "",
+      renderModal: false
     };
   }
 
@@ -24,11 +32,19 @@ class PhotoFeed extends React.Component{
     });
   }
 
-  toggleView(){
-    if(this.state.view === "list"){
-      this.setState({view: "grid"});
-    }else{
-      this.setState({view: "list"});
+  toggleView(target){
+    if(this.state.view === "list" && target === "grid"){
+      this.setState(
+        { view: "grid",
+          gridButtonStatus: "active",
+          listButtonStatus: ""
+        });
+    }else if(this.state.view === "grid" && target === "list"){
+      this.setState(
+        { view: "list",
+          gridButtonStatus: "",
+          listButtonStatus: "active"
+        });
     }
   }
 
@@ -39,7 +55,7 @@ class PhotoFeed extends React.Component{
           {this.state.photos.map((photo, i) => {
             return(
               <li key={i}>
-                <img className="list-thumbnail" src={photo.urls.thumb} alt="thumbnail"/>
+                <img className="list-thumbnail" src={photo.urls.small} alt="thumbnail"/>
                 <a className="photo-link" href={photo.links.download}>{photo.links.download}</a>
               </li>
             );
@@ -52,7 +68,7 @@ class PhotoFeed extends React.Component{
           {this.state.photos.map((photo, i) => {
             return(
               <li key={i}>
-                <img className="grid-thumbnail" src={photo.urls.thumb} alt="thumbnail"/>
+                  <img className="grid-thumbnail" src={photo.urls.small} alt="thumbnail" onClick={() => this.props.openModal(<PhotoModal photoUrl={photo.urls.small}/>)}/>
               </li>
             );
           })}
@@ -65,11 +81,18 @@ class PhotoFeed extends React.Component{
   render(){
       return(
         <div className="photo-feed-container">
+        {this.state.renderModal? <Modal/> : null}
         <header className='photo-feed-header'>
           <span className="photo-feed-label">My Photos</span>
           <span className="header-buttons-container">
-            <button>Grid</button>
-            <button>List</button>
+            <button className={`header-button ${this.state.gridButtonStatus}`} onClick={() => this.toggleView("grid")}>
+              <Grid/>
+                Grid
+            </button>
+            <button className={`header-button ${this.state.listButtonStatus}`} onClick={() => this.toggleView("list")}>
+              <List/>
+                List
+            </button>
           </span>
         </header>
           {this.displayPhotos()}
@@ -83,13 +106,15 @@ class PhotoFeed extends React.Component{
 const mapStateToProps = state => {
   return {
     photos: state.photos,
+    renderModal: state.modal.render
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     getPhotos: () => dispatch(getPhotos()),
-    loadingComplete: () => dispatch(loadingComplete())
+    loadingComplete: () => dispatch(loadingComplete()),
+    openModal: (component) => dispatch(openModal(component))
   };
 };
 

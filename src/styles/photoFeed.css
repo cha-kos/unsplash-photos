@@ -1,7 +1,7 @@
 .photo-feed-container{
   display: grid;
   grid-template-columns: [left] 100px [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr [col7] 1fr [col8] 1fr [right] 100px;
-  grid-template-rows: [row1] 160px [row2] 980px [row3] 160px [row4] 1fr;
+  grid-template-rows: [row1] 160px [row2] 560px [row3] 380px [row4] 200px [row5] 1fr;
 }
 
 .photo-feed-header{
@@ -15,12 +15,30 @@
 
 .header-buttons-container{
   display: flex;
-  flex-direction: grow;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 180px;
+  height: 40px;
 }
 
-.photo-feed-container ul{
+.header-button{
+  width: 80px;
+  font-size: 16px;
+  background: white;
+  color: #3080ED;
+  border-radius: 3px;
+}
+
+.header-button svg{
+  margin-right: 10px;
+}
+.active{
+  background: #3080ED;
+  color: white;
+}
+.photo-list{
   grid-column: col1 / right;
-  grid-row: row2 / row3;
+  grid-row: row2 / row4;
 }
 
 .photo-list li{
@@ -33,7 +51,6 @@
 .list-thumbnail{
   height: 120px;
   width: 180px;
-  object-fit: cover;
   margin-right: 45px;
 }
 
@@ -42,14 +59,23 @@
 }
 
 .photo-grid{
+  grid-column: col1 / end;
+  grid-row: row2 / row3;
+  justify-self: start;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
+.photo-grid li{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
 .grid-thumbnail{
   width: 400px;
   height: 266.66px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  /* height: 100%;
+  width: 100%; */
+  /* margin-right: 20px;
+  margin-bottom: 20px; */
 }

@@ -2,8 +2,6 @@ import { unsplash } from '../services/unsplash';
 import { toJson } from "unsplash-js";
 const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 
-window.unsplash = unsplash;
-
 const initialState = {};
 
 export default (state = initialState, action) => {

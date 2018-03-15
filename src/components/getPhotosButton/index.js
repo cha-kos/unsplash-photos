@@ -31,13 +31,13 @@ class GetPhotosButton extends React.Component{
     if(this.state.status === "disabled")
       return(
           <div className="button-container">
-            <button className="get-photos-button disabled"><PlusCircle/>Click Me</button>
+            <button className="get-photos-button disabled"><PlusCircle/>Get Photos</button>
           </div>
       );
     if(this.state.status === "complete")
       return(
           <div className="button-container">
-            <button className="get-photos-button" onClick={this.handleClick.bind(this)}><PlusCircle/>Click Me</button>
+            <button className="get-photos-button" onClick={this.handleClick.bind(this)}><PlusCircle/>Get Photos</button>
           </div>
       );
     if(this.state.status === "loading")
