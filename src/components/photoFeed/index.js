@@ -77,7 +77,7 @@ class PhotoFeed extends React.Component{
             return(
               <li key={i}>
                 <div className="grid-thumbnail-frame">
-                  <img className="thumbnail grid-thumbnail"
+                  <img className={this.state.renderModal ? "grid-thumbnail" : "thumbnail grid-thumbnail"}
                        src={photo.urls.regular}
                        alt="thumbnail"
                        onClick={() => this.props.openModal(<PhotoModal photoUrl={photo.urls.regular}/>)}/>
