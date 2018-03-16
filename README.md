@@ -1,11 +1,11 @@
-#Unsplash Photo Feed
+# Unsplash Photo Feed
 
 This project is a coding challenge for Barbershop.io, and was created using [Create React App](https://github.com/facebookincubator/create-react-app).
 
 It is meant to demonstrate the ability to interact with an external api, along
 with React.js skills.
 
-##Run locally
+### Running App Locally
 
 To run this application locally simply clone the repository.
 
