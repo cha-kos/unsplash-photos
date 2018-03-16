@@ -9,7 +9,7 @@ export default class PhotoModal extends React.Component{
       photoUrl: props.photo.urls.regular,
       avatarUrl: props.photo.user.profile_image.medium,
       instagram: props.photo.user.instagram_username,
-      name: props.photo.user.first_name + props.photo.user.last_name,
+      name: props.photo.user.name,
       location: props.photo.user.location,
     };
   }
@@ -20,8 +20,8 @@ export default class PhotoModal extends React.Component{
     }
     return(
       <div className="photo-modal-container">
-        <img className="photo-modal-image" src={this.state.photoUrl} />
-        <img className="photo-modal-avatar" src={this.state.avatarUrl} />
+        <img className="photo-modal-image" src={this.state.photoUrl} alt="modal" />
+        <img className="photo-modal-avatar" src={this.state.avatarUrl} alt="modal"/>
         <span className="photo-modal-username">{this.state.name}</span>
         {this.state.instagram ? <a className='photo-modal-instagram' href={instagramLink}>@{this.state.instagram}</a> : null}
         {this.state.location? <div className='photo-modal-location'><MapPin/><span >{this.state.location}</span></div> : null}

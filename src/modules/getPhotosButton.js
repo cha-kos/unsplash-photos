@@ -19,13 +19,6 @@ export default (state = initialState, action) => {
   }
 };
 
-
-// export const disabled = () => {
-//   return {
-//     type: DISABLED
-//   };
-// };
-
 export const loading = () => {
   return {
     type: LOADING

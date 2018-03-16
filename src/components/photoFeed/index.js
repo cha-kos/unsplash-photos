@@ -4,6 +4,7 @@ import { getPhotos } from '../../modules/photo';
 import { loadingComplete } from '../../modules/getPhotosButton';
 import { openModal } from '../../modules/modal';
 import GetPhotosButton from '../getPhotosButton';
+import SearchBar from '../searchBar';
 import PhotoModal from './photoModal';
 import List from '../../iconComponents/list';
 import Grid from '../../iconComponents/grid';
@@ -95,6 +96,7 @@ class PhotoFeed extends React.Component{
         <div className="photo-feed-container">
         <header className='photo-feed-header'>
           <span className="photo-feed-label">My Photos</span>
+          <SearchBar/>
           <span className="header-buttons-container">
             <button className={`header-button ${this.state.gridButtonStatus}`} onClick={() => this.toggleView("grid")}>
               <Grid/>
