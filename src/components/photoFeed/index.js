@@ -5,7 +5,6 @@ import { loadingComplete } from '../../modules/getPhotosButton';
 import { openModal } from '../../modules/modal';
 import GetPhotosButton from '../getPhotosButton';
 import PhotoModal from './photoModal';
-import Modal from '../modal';
 import List from '../../iconComponents/list';
 import Grid from '../../iconComponents/grid';
 import '../../styles/photoFeed.css';

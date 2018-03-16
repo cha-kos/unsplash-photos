@@ -1,23 +1,53 @@
 .modal-frame{
   position: fixed;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes zoomIn {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale3d(.3, .3, .3);
+      transform: scale3d(.3, .3, .3);
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale3d(.3, .3, .3);
+      transform: scale3d(.3, .3, .3);
+    }
+    50% {
+      opacity: 1;
+    }
 }
 
 .modal-content-wrapper{
   display: flex;
   z-index: 5;
+  max-height: 100vh;
 }
 
-.modal-content-wrapper svg{
+.x-icon{
   cursor: pointer;
   opacity: 0.5;
-  margin-top: -18px;
-  margin-right: -3px;
+  /* margin-top: -18px;
+  margin-right: -3px; */
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
 .modal-content-wrapper svg:hover{
@@ -29,13 +59,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.5s;
 }
-.photo-modal-container img{
+/* .photo-modal-container img{
+} */
+
+.photo-modal-image{
   object-fit: cover;
-  max-height: 85vh;
+  max-height: 80vh;
+  margin: 0px 20px;
+  max-height: 66%;
 }
 
 .photo-modal-avatar{
   width: 70px;
   border-radius: 35px;
+  margin-top: 40px;
+}
+
+.photo-modal-username{
+  margin: 20px 0px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.photo-modal-instagram{
+  font-size: 20px;
+  margin-bottom: 50px;
+  text-decoration: none;
+  color: black;
+}
+
+.photo-modal-location{
+  font-size: 20px;
+
 }

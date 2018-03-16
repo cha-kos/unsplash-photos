@@ -1,9 +1,9 @@
 import React from 'react';
+import MapPin from '../../iconComponents/mapPin';
 
 export default class PhotoModal extends React.Component{
 
   constructor(props){
-    debugger
     super(props);
     this.state = {
       photoUrl: props.photo.urls.regular,
@@ -15,13 +15,16 @@ export default class PhotoModal extends React.Component{
   }
 
   render(){
+    if(this.state.instagram){
+      var instagramLink = `https://www.instagram.com/${this.state.instagram}`;
+    }
     return(
       <div className="photo-modal-container">
-        <img src={this.state.photoUrl} />
+        <img className="photo-modal-image" src={this.state.photoUrl} />
         <img className="photo-modal-avatar" src={this.state.avatarUrl} />
         <span className="photo-modal-username">{this.state.name}</span>
-        <span className='photo-modal-instagram'>@{this.state.instagram}</span>
-        <span className='photo-modal-location'>{this.state.location}</span>
+        {this.state.instagram ? <a className='photo-modal-instagram' href={instagramLink}>@{this.state.instagram}</a> : null}
+        {this.state.location? <div className='photo-modal-location'><MapPin/><span >{this.state.location}</span></div> : null}
       </div>
     );
   }

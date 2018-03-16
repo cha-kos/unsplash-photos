@@ -26,10 +26,12 @@ class Modal extends React.Component {
   render () {
     if(this.state.component) {
       return (
-        <div className="modal-frame" onClick={ () => this.props.closeModal()}>
+        <div className="modal-frame">
           <div className="modal-content-wrapper">
-            <Xicon/>
             {this.props.component}
+            <div onClick={ () => this.props.closeModal()}>
+              <Xicon/>
+            </div>
           </div>
         </div>
       );
