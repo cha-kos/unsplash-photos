@@ -5,7 +5,7 @@ This project is a coding challenge for Barbershop.io, and was created using [Cre
 It is meant to demonstrate the ability to interact with an external api, along
 with React.js skills.
 
-### Running App Locally
+## Running App Locally
 
 To run this application locally simply clone the repository.
 
