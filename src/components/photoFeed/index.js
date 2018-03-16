@@ -27,6 +27,9 @@ class PhotoFeed extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
+    if(this.state.renderModal !== nextProps.renderModal){
+      this.setState({renderModal: nextProps.renderModal});
+    }
     this.setState({photos: nextProps.photos.photos}, () => {
       this.props.loadingComplete();
     });
@@ -55,8 +58,13 @@ class PhotoFeed extends React.Component{
           {this.state.photos.map((photo, i) => {
             return(
               <li key={i}>
-                <img className="list-thumbnail" src={photo.urls.small} alt="thumbnail"/>
-                <a className="photo-link" href={photo.links.download}>{photo.links.download}</a>
+                <div className="list-thumbnail-frame">
+                  <img className={this.state.renderModal ? "list-thumbnail" : "thumbnail list-thumbnail"}
+                       src={photo.urls.regular}
+                       alt="thumbnail"
+                       onClick={() => this.props.openModal(<PhotoModal photoUrl={photo.urls.regular}/>)}/>
+                 </div>
+                 <a className="photo-link" href={photo.links.download}>{photo.links.download}</a>
               </li>
             );
           })}
@@ -68,7 +76,12 @@ class PhotoFeed extends React.Component{
           {this.state.photos.map((photo, i) => {
             return(
               <li key={i}>
-                  <img className="grid-thumbnail" src={photo.urls.small} alt="thumbnail" onClick={() => this.props.openModal(<PhotoModal photoUrl={photo.urls.small}/>)}/>
+                <div className="grid-thumbnail-frame">
+                  <img className="thumbnail grid-thumbnail"
+                       src={photo.urls.regular}
+                       alt="thumbnail"
+                       onClick={() => this.props.openModal(<PhotoModal photoUrl={photo.urls.regular}/>)}/>
+                </div>
               </li>
             );
           })}
@@ -81,7 +94,6 @@ class PhotoFeed extends React.Component{
   render(){
       return(
         <div className="photo-feed-container">
-        {this.state.renderModal? <Modal/> : null}
         <header className='photo-feed-header'>
           <span className="photo-feed-label">My Photos</span>
           <span className="header-buttons-container">

@@ -1,6 +1,31 @@
 .modal-frame{
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
+  position: fixed;
+  height: 100%;
+  width: 100%;
   background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-wrapper{
+  display: flex;
+  z-index: 5;
+}
+
+.modal-content-wrapper svg{
+  cursor: pointer;
+  opacity: 0.5;
+  margin-top: -18px;
+  margin-right: -3px;
+}
+
+.modal-content-wrapper svg:hover{
+  opacity: 1;
+  transition: .2s ease;
+}
+
+.modal-content-wrapper img{
+  object-fit: cover;
+  max-height: 85vh;
 }
