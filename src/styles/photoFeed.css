@@ -84,8 +84,6 @@
 }
 
 .photo-grid{
-  grid-column: left / end;
-  grid-row-start: row2;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -98,13 +96,13 @@
 }
 
 .grid-thumbnail{
-  width: 400px;
+  width: 385px;
   height: 266.66px;
   cursor: pointer;
 }
 
 .grid-thumbnail-frame{
-  width: 400px;
+  width: 385px;
   height: 266.66px;
   overflow: hidden;
 }
@@ -117,5 +115,20 @@
 @media only screen and (max-width: 740px) {
   .photo-link{
     font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-thumbnail{
+    width: 270px;
+    height: 180px;
+  }
+  .grid-thumbnail-frame{
+    width: 270px;
+    height: 180px;
+  }
+  .photo-grid li{
+    margin-right: 5px;
+    margin-bottom: 5px;
   }
 }
