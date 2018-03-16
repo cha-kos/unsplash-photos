@@ -87,7 +87,7 @@ class SearchBar extends React.Component {
                       }
                     }
                     onKeyDown={() => this.handleKeyPress()}>
-                    <img className='avatar-image search-avatar' src={photo.urls.thumb} alt="search"/>
+                    <img className='avatar-image search-avatar' src={photo.urls.regular} alt="search"/>
                     <div className="search-user-name">by {photo.user.name}</div>
                 </li>);
             })
