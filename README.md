@@ -16,8 +16,8 @@ running the command
 
 `npm install`
 
-you must then configure your unsplash api key in the file `/services/unsplashExample`
-directions for acquiring the unsplash api permissions can be found [here](https://unsplash.com/developers). Once you have configured your service credentials, change the `unsplashExample.js` filename to `unsplash.js` and you are
+You must then configure your unsplash api key in the file `/services/unsplashExample`.
+Directions for acquiring the unsplash api permissions can be found [here](https://unsplash.com/developers). Once you have configured your service credentials, change the `unsplashExample.js` filename to `unsplash.js` and you are
 configured and ready to go!
 
 once you have successfully installed the dependencies and configured the unsplash api service, start the local server by running the command
