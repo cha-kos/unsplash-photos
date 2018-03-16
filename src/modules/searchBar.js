@@ -30,7 +30,6 @@ export const searchPhotos = (query)=> (dispatch) => {
 };
 
 const photoSearch = (query) => {
-  // debugger
   return (
     unsplash.search.photos(query, 6)
     .then(toJson)
@@ -41,7 +40,6 @@ const photoSearch = (query) => {
 };
 
 const receiveSearchResult = (result) => {
-  // debugger
   return {
     type: RECEIVE_SEARCH_RESULT,
     result: result.results

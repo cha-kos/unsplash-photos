@@ -13,10 +13,6 @@ class GetPhotosButton extends React.Component{
     };
   }
 
-  componentDidMount(){
-
-  }
-
   componentWillReceiveProps(nextProps){
     this.setState({status: nextProps.status}, () => {
     });

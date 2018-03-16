@@ -1,4 +1,3 @@
-// const DISABLED = 'DISABLED';
 const LOADING = 'LOADING';
 const COMPLETE = 'COMPLETE';
 
