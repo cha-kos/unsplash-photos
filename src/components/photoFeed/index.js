@@ -62,7 +62,7 @@ class PhotoFeed extends React.Component{
                   <img className={this.state.renderModal ? "list-thumbnail" : "thumbnail list-thumbnail"}
                        src={photo.urls.regular}
                        alt="thumbnail"
-                       onClick={() => this.props.openModal(<PhotoModal photoUrl={photo.urls.regular}/>)}/>
+                       onClick={() => this.props.openModal(<PhotoModal photo={photo}/>)}/>
                  </div>
                  <a className="photo-link" href={photo.links.download}>{photo.links.download}</a>
               </li>
@@ -80,7 +80,7 @@ class PhotoFeed extends React.Component{
                   <img className={this.state.renderModal ? "grid-thumbnail" : "thumbnail grid-thumbnail"}
                        src={photo.urls.regular}
                        alt="thumbnail"
-                       onClick={() => this.props.openModal(<PhotoModal photoUrl={photo.urls.regular}/>)}/>
+                       onClick={() => this.props.openModal(<PhotoModal photo={photo}/>)}/>
                 </div>
               </li>
             );

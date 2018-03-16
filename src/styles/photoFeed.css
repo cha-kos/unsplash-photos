@@ -107,18 +107,18 @@
   overflow: hidden;
 }
 
-@media only screen and (max-width: 875px) {
+@media (max-width: 875px) {
   .photo-feed-container{
     margin: 0px 20px
   }
 }
-@media only screen and (max-width: 740px) {
+@media (max-width: 740px) {
   .photo-link{
     font-size: 20px;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .grid-thumbnail{
     width: 270px;
     height: 180px;
